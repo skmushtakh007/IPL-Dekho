@@ -1,0 +1,10 @@
+ref={i==0 ? btnRef :null} : this condition is used to set index of button.Because react will first time then due to useeffect react will render again so the index will be 1.
+
+
+
+flat icon
+
+
+inPagenavigation:-
+
+ teams.length > 0 ? = this conditionin inPagenavigation  is because we are sending three props but they are only two parameters so check and render the accordingly.
