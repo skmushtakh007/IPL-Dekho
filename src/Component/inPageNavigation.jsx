@@ -26,36 +26,40 @@ export default function InPageNavigation({ teams, children }) {
     toggleBtn(btnRef.current, 0)
   }, [])
   return (
-    <div>
-      {teams.length > 2 ?
-        teams.map(({ path, title }, i) =>
-        (
-          <Link to={path}>
+    <div className="w-full" >
+      <div className={"bg-blue-500 w-full flex justify-between items-end" + (teams.length > 2 ? "h-[100px]":"h-[50px]")}>
+
+
+        {teams.length > 2 ?
+          teams.map(({ path, title }, i) =>
+          (
+            <Link to={path}>
+              <button
+                ref={i == 0 ? btnRef : null}
+                key={i}
+                className={"bg-gray-200/20 font-bold px-7 lg:px-16 py-5 text-sm hover:bg-gray-200/20 mr-1  " + (index == i ? "text-white bg-gray-200/20" : "text-gray-400")}
+                onClick={(e) => toggleBtn(e.target, i)}>
+                {title}
+              </button>
+            </Link>
+          ))
+          :
+          teams.map((data, i) =>
+          (
             <button
               ref={i == 0 ? btnRef : null}
               key={i}
-              className={"bg-gray-200  mr-1 px-10 " + (index == i ? "text-black" : "text-gray-400")}
+              className={" border border-gray-500 w-[50%] h-full bg-black mr-1 px-10 " + (index == i ? "text-white" : "text-gray-400")}
               onClick={(e) => toggleBtn(e.target, i)}>
-              {title}
-            </button>
-          </Link>
-        ))
-        :
-        teams.map((data, i) =>
-        (
-          <button
-            ref={i == 0 ? btnRef : null}
-            key={i}
-            className={"bg-gray-200  mr-1 px-10 " + (index == i ? "text-black" : "text-gray-400")}
-            onClick={(e) => toggleBtn(e.target, i)}>
 
-            {data}
-          </button>
-        ))
-      }
-      <hr
-        ref={tabLineRef} className="border-black relative"
-      />
+              {data}
+            </button>
+          ))
+        }
+        <hr
+          ref={tabLineRef} className="border-black border-2 absolute duration-300"
+        />
+      </div>
 
       {teams.length > 2 ? "" : children[index]}
     </div>

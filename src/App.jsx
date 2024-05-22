@@ -9,17 +9,18 @@ import News from './Component/News.jsx';
 
 function App() {
     return (
-        <>
+        <div className='max-w-screen min-h-screen mx-auto bg-black'>
             <Routes>
                 <Route path='/' element={<Navbar />}>
                     <Route path='/' element={<Home />} />
                     <Route path='/pointsTable' element={<PointsTable />} />
                     <Route path='/news' element={<News />} />
+                    <Route path="/matchDetail/:id" element={<MatchDetail />} />
                 </Route>
 
-                <Route path="/matchDetail/:id" element={<MatchDetail />} />
+         
             </Routes>
-        </>
+        </div>
     )
 }
 export default App;

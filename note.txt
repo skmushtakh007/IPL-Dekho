@@ -8,3 +8,6 @@ flat icon
 inPagenavigation:-
 
  teams.length > 0 ? = this conditionin inPagenavigation  is because we are sending three props but they are only two parameters so check and render the accordingly.
+
+
+ conditional chaining:
